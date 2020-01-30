@@ -1,0 +1,12 @@
+@import "variables";
+@import "mixins";
+
+body{
+    background-color: #000000;
+
+    .wrapper{
+        background-color: red;
+        width: 100%;
+        height: 100vh;
+    }
+}
