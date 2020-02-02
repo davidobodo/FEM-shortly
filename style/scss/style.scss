@@ -1,6 +1,6 @@
 @import "variables";
 @import "mixins";
-@import url(https://fonts.google.com/specimen/Poppins);
+// @import url(https://fonts.google.com/specimen/Poppins);
 
 
 body{
@@ -27,6 +27,14 @@ body{
     .second__section{
         padding-left: $general-padding;
         padding-right: $general-padding;
+        background-color: #f0f1f6;
+
+        .row{
+
+            .col-4{
+                background-color: #ffffff;
+            }
+        }
     }
 
     .footer{
@@ -54,4 +62,12 @@ body{
             }
         }
     }
+}
+
+
+//Reused components
+
+.btn-green-white{
+    background-color: #2dcfd2 !important;
+    color: #ffffff;
 }
