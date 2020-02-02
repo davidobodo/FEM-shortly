@@ -9,6 +9,10 @@ body{
     .navbar{
         padding-left: $general-padding;
         padding-right: $general-padding;
+
+        .navbar-brand{
+            font-size: 2rem;
+        }
     };
 
     .first__section{
@@ -23,6 +27,5 @@ body{
     .second__section{
         padding-left: $general-padding;
         padding-right: $general-padding;
-        background-color: $cyan;
     }
 }

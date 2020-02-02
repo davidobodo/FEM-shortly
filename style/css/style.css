@@ -4,6 +4,8 @@ body {
   body .navbar {
     padding-left: 10vw;
     padding-right: 10vw; }
+    body .navbar .navbar-brand {
+      font-size: 2rem; }
   body .first__section {
     padding-left: 10vw;
     height: 100vh; }
@@ -11,7 +13,6 @@ body {
       background-color: transparent; }
   body .second__section {
     padding-left: 10vw;
-    padding-right: 10vw;
-    background-color: #2acfcf; }
+    padding-right: 10vw; }
 
 /*# sourceMappingURL=style.css.map */
