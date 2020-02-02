@@ -1,8 +1,17 @@
 @import url(https://fonts.google.com/specimen/Poppins);
 body {
-  font-family: 'Poppins'; }
+  font-family: sans-serif; }
   body .navbar {
     padding-left: 10vw;
     padding-right: 10vw; }
+  body .first__section {
+    padding-left: 10vw;
+    height: 100vh; }
+    body .first__section .jumbotron {
+      background-color: transparent; }
+  body .second__section {
+    padding-left: 10vw;
+    padding-right: 10vw;
+    background-color: #2acfcf; }
 
 /*# sourceMappingURL=style.css.map */

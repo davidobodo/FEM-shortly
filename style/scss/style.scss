@@ -2,11 +2,27 @@
 @import "mixins";
 @import url(https://fonts.google.com/specimen/Poppins);
 
+
 body{
-    font-family: 'Poppins';
+    font-family: sans-serif;
 
     .navbar{
         padding-left: $general-padding;
         padding-right: $general-padding;
+    };
+
+    .first__section{
+        padding-left: $general-padding;
+        height: 100vh;
+
+        .jumbotron{
+            background-color: transparent;
+        }
+    }
+
+    .second__section{
+        padding-left: $general-padding;
+        padding-right: $general-padding;
+        background-color: $cyan;
     }
 }
