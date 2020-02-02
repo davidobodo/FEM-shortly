@@ -28,4 +28,30 @@ body{
         padding-left: $general-padding;
         padding-right: $general-padding;
     }
+
+    .footer{
+
+        &__brand{
+            font-size: 2rem;
+        }
+
+        &__links{
+
+            .footer__link{
+
+                &__header{
+                    font-weight: 700;
+                    font-size: 1rem;
+                }
+
+                &__subLinks{
+                    list-style: none;
+                    
+                    li{
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+    }
 }

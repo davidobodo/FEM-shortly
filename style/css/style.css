@@ -14,5 +14,14 @@ body {
   body .second__section {
     padding-left: 10vw;
     padding-right: 10vw; }
+  body .footer__brand {
+    font-size: 2rem; }
+  body .footer__links .footer__link__header {
+    font-weight: 700;
+    font-size: 1rem; }
+  body .footer__links .footer__link__subLinks {
+    list-style: none; }
+    body .footer__links .footer__link__subLinks li {
+      font-size: 1rem; }
 
 /*# sourceMappingURL=style.css.map */
