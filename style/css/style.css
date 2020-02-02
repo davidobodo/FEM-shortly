@@ -32,6 +32,7 @@ body {
 
 .btn-green-white {
   background-color: #2dcfd2 !important;
-  color: #ffffff; }
+  color: #ffffff;
+  border-radius: 30px; }
 
 /*# sourceMappingURL=style.css.map */
