@@ -16,15 +16,19 @@ body {
     background-color: #f0f1f6; }
     body .second__section .row .col-4 {
       background-color: #ffffff; }
-  body .footer__brand {
-    font-size: 2rem; }
-  body .footer__links .footer__link__header {
-    font-weight: 700;
-    font-size: 1rem; }
-  body .footer__links .footer__link__subLinks {
-    list-style: none; }
-    body .footer__links .footer__link__subLinks li {
+  body .third__section {
+    background-color: #3a3053; }
+  body .footer {
+    background-color: #232027; }
+    body .footer__brand {
+      font-size: 2rem; }
+    body .footer__links .footer__link__header {
+      font-weight: 700;
       font-size: 1rem; }
+    body .footer__links .footer__link__subLinks {
+      list-style: none; }
+      body .footer__links .footer__link__subLinks li {
+        font-size: 1rem; }
 
 .btn-green-white {
   background-color: #2dcfd2 !important;
