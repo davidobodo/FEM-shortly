@@ -2,6 +2,9 @@
 @import "mixins";
 // @import url(https://fonts.google.com/specimen/Poppins);
 
+*{
+    box-sizing: border-box;
+}
 
 body{
     font-family: sans-serif;
@@ -17,7 +20,7 @@ body{
 
     .first__section{
         padding-left: $general-padding;
-        // height: 80vh;
+        min-height: 80vh;
 
         .jumbotron{
             background-color: transparent;
@@ -31,7 +34,7 @@ body{
         .position-relative{
 
             .position-absolute{
-                right: -50px;
+                // right: -50px;
             }
         }
     }
@@ -43,7 +46,8 @@ body{
         padding-bottom: 8rem;
 
         .shortly__form{
-            margin-bottom: 10rem;
+            margin-bottom: 7rem;
+            transform: translateY(-90px);
 
             &__input{
                 background-color: #3a3053;
@@ -111,16 +115,47 @@ body{
                 position: absolute;
                 width: 30%;
                 padding: 2rem;
+                padding-top: 4.5rem;
+                border-radius: 5px;
+
+                div{
+                    background-color: #3a3055;
+                    display: inline-block;
+                    position: absolute;
+                    top: -50px;
+                    padding: 1.5rem;
+                    border-radius: 50%;
+                }
             }
 
             &__one{
                 background-color: #ffffff;
+
+                &:after{
+                    content: '';
+                    position: absolute;
+                    background-color: #27cfcf;
+                    width: 80px;
+                    height: 10px;
+                    right: -81px;
+                    top: 65%;
+                }
             }
             
             &__two{
                 background-color: #ffffff;
                 left: 35%;
                 top: 4rem;
+
+                &:after{
+                    content: '';
+                    position: absolute;
+                    background-color: #27cfcf;
+                    width: 80px;
+                    height: 10px;
+                    right: -81px;
+                    top: 65%;
+                }
                 
             }
             
@@ -149,6 +184,7 @@ body{
 
         &__brand{
             font-size: 2rem;
+            transform: translateY(-10px)
         }
 
         &__links{
@@ -168,6 +204,8 @@ body{
                     
                     li{
                         font-size: 1rem;
+                        color: #9e9da5;
+                        margin-bottom: 1rem;
                     }
                 }
 
@@ -188,6 +226,10 @@ body{
     background-color: #2dcfd2 !important;
     color: #ffffff;
     border-radius: 30px;
+}
+
+.ash-color{
+    color: #9e9da5 !important;
 }
 
 
