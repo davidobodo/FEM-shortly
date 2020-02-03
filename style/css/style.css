@@ -6,6 +6,10 @@ body {
   body .navbar {
     padding-left: 10vw;
     padding-right: 10vw; }
+    @media (max-width: 992px) {
+      body .navbar {
+        padding-left: 2rem;
+        padding-right: 2rem; } }
     body .navbar .navbar-brand {
       font-size: 2rem; }
   body .first__section {
@@ -16,6 +20,19 @@ body {
       body .first__section .jumbotron > p.lead {
         font-size: 1.5rem;
         width: 70%; }
+      @media (max-width: 992px) {
+        body .first__section .jumbotron {
+          order: 5;
+          margin-bottom: 10rem; }
+          body .first__section .jumbotron h1 {
+            font-size: 3.5rem;
+            text-align: center; }
+          body .first__section .jumbotron > p.lead {
+            width: auto;
+            text-align: center; } }
+    @media (max-width: 992px) {
+      body .first__section .position-relative .position-absolute {
+        position: static !important; } }
   body .second__section {
     padding-left: 10vw;
     padding-right: 10vw;
@@ -44,10 +61,25 @@ body {
           padding-left: 4rem;
           padding-right: 4rem;
           border-radius: 10px; }
+        @media (max-width: 992px) {
+          body .second__section .shortly__form__input {
+            flex-wrap: wrap;
+            padding: 2rem; }
+            body .second__section .shortly__form__input input {
+              margin-right: 0;
+              margin-bottom: 15px; }
+            body .second__section .shortly__form__input button {
+              width: 100%;
+              padding-top: 1rem;
+              padding-bottom: 1rem;
+              font-weight: 700; } }
     body .second__section .advanced-statistics {
       width: 500px;
       margin: 0 auto;
       margin-bottom: 8rem; }
+      @media (max-width: 992px) {
+        body .second__section .advanced-statistics {
+          width: auto; } }
     body .second__section .advanced-statistics__sections {
       position: relative; }
       body .second__section .advanced-statistics__sections .trial {
@@ -63,8 +95,16 @@ body {
           top: -50px;
           padding: 1.5rem;
           border-radius: 50%; }
+        @media (max-width: 992px) {
+          body .second__section .advanced-statistics__sections .trial {
+            width: auto;
+            margin-bottom: 6rem; }
+            body .second__section .advanced-statistics__sections .trial div {
+              left: 50%;
+              transform: translateX(-50%); } }
       body .second__section .advanced-statistics__sections__one {
-        background-color: #ffffff; }
+        background-color: #ffffff;
+        position: relative; }
         body .second__section .advanced-statistics__sections__one:after {
           content: '';
           position: absolute;
@@ -73,10 +113,24 @@ body {
           height: 10px;
           right: -81px;
           top: 65%; }
+          @media (max-width: 992px) {
+            body .second__section .advanced-statistics__sections__one:after {
+              top: auto;
+              right: 0;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 10px;
+              height: 80px;
+              bottom: -80px; } }
       body .second__section .advanced-statistics__sections__two {
+        position: relative;
         background-color: #ffffff;
         left: 35%;
         top: 4rem; }
+        @media (max-width: 992px) {
+          body .second__section .advanced-statistics__sections__two {
+            top: 350px !important;
+            left: 0; } }
         body .second__section .advanced-statistics__sections__two:after {
           content: '';
           position: absolute;
@@ -85,14 +139,32 @@ body {
           height: 10px;
           right: -81px;
           top: 65%; }
+          @media (max-width: 992px) {
+            body .second__section .advanced-statistics__sections__two:after {
+              top: auto;
+              right: 0;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 10px;
+              height: 80px;
+              bottom: -80px; } }
       body .second__section .advanced-statistics__sections__three {
         background-color: #ffffff;
         right: 0;
         top: 8rem; }
+        @media (max-width: 992px) {
+          body .second__section .advanced-statistics__sections__three {
+            top: 700px !important; } }
     body .second__section .advanced-statistics__sections__fix {
       height: 400px; }
+      @media (max-width: 992px) {
+        body .second__section .advanced-statistics__sections__fix {
+          height: 930px; } }
   body .third__section {
     background-color: #3a3053; }
+    @media (max-width: 992px) {
+      body .third__section h1 {
+        font-size: 1.8rem; } }
   body .footer {
     background-color: #232027;
     padding-left: 10vw;
@@ -104,8 +176,15 @@ body {
       transform: translateY(-10px); }
     body .footer__links {
       display: flex; }
+      @media (max-width: 992px) {
+        body .footer__links {
+          flex-direction: column;
+          text-align: center; } }
       body .footer__links .footer__link {
         flex: 1; }
+        @media (max-width: 992px) {
+          body .footer__links .footer__link {
+            margin-bottom: 2rem; } }
         body .footer__links .footer__link__header {
           font-weight: 700;
           font-size: 1rem; }
@@ -120,6 +199,15 @@ body {
           display: flex;
           justify-content: space-evenly;
           align-items: start; }
+    @media (max-width: 992px) {
+      body .footer .row {
+        flex-direction: column;
+        align-items: center; }
+        body .footer .row .col-3 {
+          width: auto;
+          max-width: 100%;
+          text-align: center;
+          margin-bottom: 3rem; } }
 
 .btn-green-white {
   background-color: #2dcfd2 !important;
