@@ -14,7 +14,8 @@ body {
       font-size: 2rem; }
   body .first__section {
     padding-left: 10vw;
-    min-height: 80vh; }
+    min-height: 80vh;
+    width: 100%; }
     body .first__section .jumbotron {
       background-color: transparent; }
       body .first__section .jumbotron > p.lead {
