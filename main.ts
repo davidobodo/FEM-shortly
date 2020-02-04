@@ -37,7 +37,7 @@ const handleCreateShortLink = (sLink: any, fLink: any) => {
     })
     console.log(allLinks)
     localStorage.setItem("my-shortened-links", JSON.stringify(allLinks))
-    handleDisplayLinks(allLinks)
+    handleDisplayLinks(allLinks);
 }
 
 const submitLink = (e) => {

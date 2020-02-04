@@ -12,12 +12,39 @@ body {
         padding-right: 2rem; } }
     body .navbar .navbar-brand {
       font-size: 2rem; }
+    @media (max-width: 992px) {
+      body .navbar .navbar-collapse {
+        background-color: #3a3055;
+        border-radius: 10px; }
+        body .navbar .navbar-collapse .navbar-nav {
+          text-align: center;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+          margin-left: 1rem;
+          margin-right: 1rem !important; }
+          body .navbar .navbar-collapse .navbar-nav .nav-link {
+            color: #ffffff;
+            margin-bottom: 1rem; }
+          body .navbar .navbar-collapse .navbar-nav .active > .nav-link {
+            color: #ffffff !important; }
+        body .navbar .navbar-collapse .form-inline {
+          display: flex;
+          flex-direction: column; }
+          body .navbar .navbar-collapse .form-inline .mr-4 {
+            margin-right: 0 !important;
+            color: #ffffff;
+            margin-bottom: 1rem; }
+          body .navbar .navbar-collapse .form-inline .my-sm-0:last-child {
+            width: 80%;
+            margin-bottom: 2rem !important; } }
   body .first__section {
     padding-left: 10vw;
     min-height: 80vh;
     width: 100%;
     margin-right: 0;
     margin-left: 0; }
+    @media (max-width: 992px) {
+      body .first__section {
+        padding-left: 0; } }
     body .first__section .jumbotron {
       background-color: transparent; }
       body .first__section .jumbotron > p.lead {
@@ -33,10 +60,12 @@ body {
           body .first__section .jumbotron > p.lead {
             width: auto;
             text-align: center; } }
-    body .first__section .position-relative .position-absolute {
-      transform: translateY(200px); }
+    body .first__section .position-relative {
+      display: flex;
+      align-items: center;
+      justify-content: center; }
       @media (max-width: 992px) {
-        body .first__section .position-relative .position-absolute {
+        body .first__section .position-relative .img {
           position: static !important;
           transform: translateY(0px); } }
   body .second__section {
@@ -98,6 +127,11 @@ body {
             color: #ffffff;
             border-radius: 5px;
             padding: 0.3rem 2rem; }
+          @media (max-width: 992px) {
+            body .second__section .shortly__form__links li {
+              flex-direction: column; }
+              body .second__section .shortly__form__links li .copy-button {
+                width: 100%; } }
     body .second__section .advanced-statistics {
       width: 500px;
       margin: 0 auto;

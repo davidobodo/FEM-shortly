@@ -21,6 +21,48 @@ body{
         .navbar-brand{
             font-size: 2rem;
         }
+
+        @media(max-width: 992px){
+            .navbar-collapse{
+                background-color: #3a3055;
+                border-radius: 10px;
+
+                .navbar-nav{
+                    text-align:center;
+                    border-bottom: 1px solid rgba(255,255,255, 0.5);
+                    margin-left: 1rem;
+                    margin-right: 1rem !important;
+                    
+                    .nav-link{
+                        color: #ffffff;
+                        margin-bottom: 1rem;
+                    }
+                    
+                    .active>.nav-link{
+                        color: #ffffff !important;
+                    
+                    }
+                }
+
+                .form-inline{
+                    display: flex;
+                    flex-direction: column;
+
+                    .mr-4{
+                        margin-right: 0 !important;
+                        color: #ffffff;
+                        margin-bottom: 1rem;
+                    }
+
+                    .my-sm-0:last-child{
+                        width: 80%;
+                        margin-bottom: 2rem !important;
+                    }
+                }
+            }
+        }
+
+        
     };
 
     .first__section{
@@ -29,6 +71,10 @@ body{
         width: 100%;
         margin-right: 0;
         margin-left: 0;
+
+        @media(max-width: 992px){
+            padding-left: 0;
+        }
 
         .jumbotron{
             background-color: transparent;
@@ -41,6 +87,7 @@ body{
             @media (max-width: 992px) {
                 order: 5;
                 margin-bottom: 10rem;
+                
 
                 h1{
                     font-size: 3.5rem;
@@ -56,9 +103,11 @@ body{
         }
 
         .position-relative{
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-            .position-absolute{
-                transform: translateY(200px);
+            .img{
 
                 @media (max-width: 992px) {
                     position: static !important;
@@ -138,6 +187,8 @@ body{
                     justify-content: space-between;
                     align-items: center;
 
+                    
+
                     .full-link{
 
                     }
@@ -155,6 +206,14 @@ body{
                         color: #ffffff;
                         border-radius: 5px;
                         padding: 0.3rem 2rem;
+                    }
+
+                    @media(max-width: 992px){
+                        flex-direction: column;
+
+                        .copy-button{
+                            width: 100%;
+                        }
                     }
                 }
             }
