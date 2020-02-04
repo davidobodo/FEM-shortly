@@ -45,12 +45,12 @@ body {
     background-color: #f0f1f6;
     padding-bottom: 8rem; }
     body .second__section .shortly__form {
-      margin-bottom: 7rem;
       transform: translateY(-90px); }
       body .second__section .shortly__form__input {
         background-color: #3a3053;
         padding: 4rem;
-        border-radius: 15px; }
+        border-radius: 15px;
+        margin-bottom: 1.5rem; }
         body .second__section .shortly__form__input input {
           margin-right: 1.5rem;
           flex: 1;
@@ -79,6 +79,25 @@ body {
               padding-top: 1rem;
               padding-bottom: 1rem;
               font-weight: 700; } }
+      body .second__section .shortly__form__links {
+        list-style: none;
+        padding-left: 0; }
+        body .second__section .shortly__form__links li {
+          padding: 1rem 2rem;
+          background-color: #ffffff;
+          border-radius: 10px;
+          margin-bottom: 1.5rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center; }
+          body .second__section .shortly__form__links li .shortened-link {
+            color: #2dcfd2;
+            margin-right: 2rem; }
+          body .second__section .shortly__form__links li .copy-button {
+            background-color: #2dcfd2;
+            color: #ffffff;
+            border-radius: 5px;
+            padding: 0.3rem 2rem; }
     body .second__section .advanced-statistics {
       width: 500px;
       margin: 0 auto;
