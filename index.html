@@ -59,10 +59,11 @@
 
         <section class="second__section">
             <div class="shortly__form">
-                <div class="shortly__form__input d-flex justify-content-between">
-                    <input class="" type="text" placeholder="Shorten a link here..." />
+                <form class="shortly__form__input d-flex justify-content-between" id="rel"
+                    action="https://rel.ink/api/links/" method="POST">
+                    <input class="" name="link" type="text" placeholder="Shorten a link here..." />
                     <button class="">Shorten It!</button>
-                </div>
+                </form>
             </div>
             <div class="text-center advanced-statistics">
                 <h1 class="font-weight-bold mb-4">Advanced Statistics</h1>
