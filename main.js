@@ -2,7 +2,8 @@ var input = document.querySelector('.shortly__form__input input');
 var button = document.querySelector('.shortly__form__input button');
 var linksWrapper = document.querySelector('.shortly__form__links');
 var form = document.forms["rel"];
-var allLinks = [];
+var allLinks = JSON.parse(localStorage.getItem("my-shortened-links")) || [];
+console.log('here', allLinks);
 var handleDisplayLinks = function (links) {
     var displayAllLinks = links.map(function (link) {
         var short = link.short, long = link.long;
@@ -21,7 +22,7 @@ var handleCreateShortLink = function (sLink, fLink) {
         long: fLink
     });
     console.log(allLinks);
-    localStorage.setItem("data", JSON.stringify(allLinks));
+    localStorage.setItem("my-shortened-links", JSON.stringify(allLinks));
     handleDisplayLinks(allLinks);
 };
 var submitLink = function (e) {
@@ -40,4 +41,7 @@ var submitLink = function (e) {
         .then(function (res) { return res.json(); })
         .then(function (sLink) { return handleCreateShortLink(sLink, fLink); })["catch"](function (err) { return console.log(err); });
 };
+if (allLinks) {
+    handleDisplayLinks(allLinks);
+}
 button.addEventListener('click', submitLink);

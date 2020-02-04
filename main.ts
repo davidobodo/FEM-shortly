@@ -4,7 +4,10 @@ const button = document.querySelector('.shortly__form__input button');
 const linksWrapper = document.querySelector('.shortly__form__links');
 const form = document.forms["rel"]
 
-const allLinks = [];
+const allLinks = JSON.parse(localStorage.getItem("my-shortened-links")) || [];
+console.log('here', allLinks)
+
+
 
 const handleDisplayLinks = (links) => {
     const displayAllLinks = links.map((link) => {
@@ -33,7 +36,7 @@ const handleCreateShortLink = (sLink: any, fLink: any) => {
         long: fLink
     })
     console.log(allLinks)
-    localStorage.setItem("data", JSON.stringify(allLinks))
+    localStorage.setItem("my-shortened-links", JSON.stringify(allLinks))
     handleDisplayLinks(allLinks)
 }
 
@@ -53,6 +56,10 @@ const submitLink = (e) => {
         .then(res => res.json())
         .then(sLink => handleCreateShortLink(sLink, fLink))
         .catch(err => console.log(err))
+}
+
+if (allLinks) {
+    handleDisplayLinks(allLinks)
 }
 
 button.addEventListener('click', submitLink)
