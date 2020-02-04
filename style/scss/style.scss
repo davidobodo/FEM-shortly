@@ -112,6 +112,7 @@ body{
                 @media (max-width: 992px) {
                     position: static !important;
                     transform: translateY(0px);
+                    width: 100%;
                 }
             }
 
@@ -163,6 +164,7 @@ body{
                     input{
                         margin-right: 0;
                         margin-bottom: 15px;
+                        width: 100%;
                     }
 
                     button{

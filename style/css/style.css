@@ -67,7 +67,8 @@ body {
       @media (max-width: 992px) {
         body .first__section .position-relative .img {
           position: static !important;
-          transform: translateY(0px); } }
+          transform: translateY(0px);
+          width: 100%; } }
   body .second__section {
     padding-left: 10vw;
     padding-right: 10vw;
@@ -102,7 +103,8 @@ body {
             padding: 2rem; }
             body .second__section .shortly__form__input input {
               margin-right: 0;
-              margin-bottom: 15px; }
+              margin-bottom: 15px;
+              width: 100%; }
             body .second__section .shortly__form__input button {
               width: 100%;
               padding-top: 1rem;
