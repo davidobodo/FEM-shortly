@@ -1,0 +1,49 @@
+.first__section{
+    padding-left: $general-padding;
+    min-height: 80vh;
+    width: 100%;
+    margin: auto 0;
+
+    .jumbotron{
+        background-color: transparent;
+
+        >p.lead{
+            font-size: 1.5rem;
+            width: 70%;
+        }
+    }
+
+    .position-relative{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @media(max-width: 992px){
+        padding-left: 0;
+
+        .jumbotron{
+            order: 5;
+            margin-bottom: 10rem;
+
+            h1{
+                font-size: 3.5rem;
+                text-align: center;
+            }
+
+            >p.lead{
+                width: auto;
+                text-align:center;
+            }
+        }
+
+        .position-relative{
+
+            .img{
+                position: static !important;
+                transform: translateY(0px);
+                width: 100%;
+            }
+        }
+    }
+}

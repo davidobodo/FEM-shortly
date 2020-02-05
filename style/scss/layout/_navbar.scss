@@ -1,0 +1,49 @@
+.navbar{
+    padding-left: $general-padding;
+    padding-right: $general-padding;
+
+    .navbar-brand{
+        font-size: 2rem;
+   } 
+
+    @media(max-width: 992px){
+        padding-left: 2rem;
+        padding-right: 2rem;
+
+        .navbar-collapse{
+            background-color: #3a3055;
+            border-radius: 10px;
+
+            .navbar-nav{
+                text-align: center;
+                border-bottom: 1px solid rgba(255,255,255, 0.5);
+                margin: 0 1rem !important;
+                
+                .nav-link{
+                    color: #ffffff;
+                    margin-bottom: 1rem;
+                }
+                
+                .active>.nav-link{
+                    color: #ffffff !important;
+                }
+            }
+
+            .form-inline{
+                display: flex;
+                flex-direction: column;
+
+                .mr-4{
+                    margin-right: 0 !important;
+                    color: #ffffff;
+                    margin-bottom: 1rem;
+                }
+
+                .my-sm-0:last-child{
+                    width: 80%;
+                    margin-bottom: 2rem !important;
+                }
+            }
+        }
+    }
+};

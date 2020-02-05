@@ -1,0 +1,21 @@
+@import "base/resets";
+@import "base/typography";
+
+@import "utils/functions";
+@import "utils/variables";
+@import "utils/mixins";
+
+@import "layout/navbar";
+@import "layout/header";
+@import "layout/body";
+@import "layout/footer";
+
+@import "components/components";
+
+
+body{
+    font-family: sans-serif;
+}
+
+
+
