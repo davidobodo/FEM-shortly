@@ -5,9 +5,6 @@ const linksWrapper = document.querySelector('.shortly__form__links');
 const form = document.forms["rel"]
 
 const allLinks = JSON.parse(localStorage.getItem("my-shortened-links")) || [];
-console.log('here', allLinks)
-
-
 
 const handleDisplayLinks = (links) => {
     const displayAllLinks = links.map((link) => {
@@ -52,10 +49,42 @@ const submitLink = (e) => {
         headers: headers,
         body: JSON.stringify({ url: fLink })
     });
-    fetch(request)
-        .then(res => res.json())
-        .then(sLink => handleCreateShortLink(sLink, fLink))
-        .catch(err => console.log(err))
+
+    //-------------------------------------------------------------------
+    //using promises (start)
+    //-------------------------------------------------------------------
+    // const getShortLink = (req) => {
+    //     fetch(req)
+    //         .then(res => res.json())
+    //         .then(sLink => handleCreateShortLink(sLink, fLink))
+    //         .catch(err => console.log(err))
+    // }
+    //-------------------------------------------------------------------
+    //using promises (end)
+    //-------------------------------------------------------------------
+
+
+
+    //-------------------------------------------------------------------
+    //using async and await (start)
+    //-------------------------------------------------------------------
+    async function getShortLink(req) {
+        try {
+            console.log(req)
+            let response = await fetch(req);
+            let sLink = await response.json();
+            return handleCreateShortLink(sLink, fLink)
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+
+    //-------------------------------------------------------------------
+    //using async and await (end)
+    //-------------------------------------------------------------------
+
+    getShortLink(request);
 }
 
 if (allLinks) {
