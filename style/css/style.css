@@ -97,6 +97,8 @@
         .second__section .shortly__form__input {
           flex-wrap: wrap;
           padding: 2rem; }
+          .second__section .shortly__form__input .d-flex {
+            flex-direction: column; }
           .second__section .shortly__form__input input {
             margin-right: 0;
             margin-bottom: 15px;

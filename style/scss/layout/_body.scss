@@ -39,6 +39,10 @@
             @media(max-width:992px){
                 flex-wrap:wrap;
                 padding: 2rem;
+
+                .d-flex{
+                    flex-direction: column;
+                }
                 
                 input{
                     margin-right: 0;
