@@ -172,6 +172,32 @@
         }
     }
 
+
+    //---------------------------------------------------------------------------
+    //Implementation using flex
+    //---------------------------------------------------------------------------
+    // .advanced-statistics__sections{
+    //     display: flex;
+    //     justify-content: space-between;
+            
+    //     .trial{
+    //         background-color: #ffffff;
+    //         width: 30%;
+    //         padding: 2rem;
+    //         padding-top: 4.5rem;
+    //         border-radius: 5px;
+    //     }
+
+    //     &__two{
+    //         margin-top: 100px;
+    //     }
+
+    //     &__three{
+    //         margin-top: 200px;
+    //     }
+    // }
+
+
     .advanced-statistics__sections__fix{
         height: 400px;
 
