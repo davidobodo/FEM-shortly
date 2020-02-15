@@ -105,27 +105,20 @@
       list-style: none;
       padding-left: 0; }
       .second__section .shortly__form__links li {
-        padding: 1rem 0;
+        padding: 1rem 2rem;
         background-color: #ffffff;
         border-radius: 10px;
         margin-bottom: 1.5rem;
         display: flex;
         justify-content: space-between;
         align-items: center; }
-        .second__section .shortly__form__links li span {
-          padding-left: 2rem;
-          padding-right: 2rem; }
-        .second__section .shortly__form__links li .full-link {
-          text-overflow: ellipsis;
-          overflow: hidden;
-          white-space: nowrap;
-          width: 100%; }
         .second__section .shortly__form__links li hr {
           height: 1px;
           background-color: black;
           width: 100%;
           border: none;
-          opacity: 0.1; }
+          opacity: 0.1;
+          display: none; }
         .second__section .shortly__form__links li .shortened-link {
           color: #2dcfd2;
           margin-right: 2rem; }
@@ -138,7 +131,24 @@
           border: none; }
         @media (max-width: 992px) {
           .second__section .shortly__form__links li {
-            flex-direction: column; }
+            flex-direction: column;
+            padding: 1rem 0; }
+            .second__section .shortly__form__links li span {
+              padding-left: 2rem;
+              padding-right: 2rem; }
+            .second__section .shortly__form__links li .full-link {
+              width: 100%;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              white-space: nowrap; }
+            .second__section .shortly__form__links li .shortened-link {
+              padding: 0;
+              display: block;
+              margin-bottom: 10px; }
+            .second__section .shortly__form__links li hr {
+              display: block; }
+            .second__section .shortly__form__links li hr + span {
+              width: 100%; }
             .second__section .shortly__form__links li .copy-button {
               width: 100%; } }
   .second__section .advanced-statistics {
