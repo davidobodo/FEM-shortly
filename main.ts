@@ -15,6 +15,7 @@ const handleDisplayLinks = (links) => {
         return (
             `<li>
                 <span class="full-link">${long}</span>
+                <hr/>
                 <span>
                     <span class="shortened-link">${short}</span>
                     <button class="copy-button">copy</button>

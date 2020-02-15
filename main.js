@@ -45,7 +45,7 @@ var handleDisplayLinks = function (links) {
         if (long.length >= 65) {
             long = long.substr(0, 65) + "...";
         }
-        return ("<li>\n                <span class=\"full-link\">" + long + "</span>\n                <span>\n                    <span class=\"shortened-link\">" + short + "</span>\n                    <button class=\"copy-button\">copy</button>\n                </span>\n            </li>");
+        return ("<li>\n                <span class=\"full-link\">" + long + "</span>\n                <hr/>\n                <span>\n                    <span class=\"shortened-link\">" + short + "</span>\n                    <button class=\"copy-button\">copy</button>\n                </span>\n            </li>");
     }).join('');
     linksWrapper.innerHTML = displayAllLinks;
 };
