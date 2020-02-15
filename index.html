@@ -61,7 +61,8 @@
             <div class="shortly__form">
                 <form class="shortly__form__input" id="rel" action="https://rel.ink/api/links/" method="POST">
                     <div class="d-flex justify-content-between">
-                        <input class="" name="link" type="text" placeholder="Shorten a link here..." />
+                        <input class="" name="link" type="url" pattern="https?://.+" required
+                            placeholder="Shorten a link here..." />
                         <button class="">Shorten It!</button>
                     </div>
                     <div class="error-message">Please add a Link</div>

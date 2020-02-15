@@ -46,7 +46,7 @@ var handleDisplayLinks = function (links) {
         if (long.length >= 65) {
             long = long.substr(0, 65) + "...";
         }
-        return ("<li>\n                <span class=\"full-link\">" + long + "</span>\n                <hr/>\n                <span>\n                    <span class=\"shortened-link\">" + short + "</span>\n                    <button class=\"copy-button\">copy</button>\n                </span>\n            </li>");
+        return ("<li>\n                <span class=\"full-link\">" + long + "</span>\n                <hr/>\n                <span>\n                    <span class=\"shortened-link\" data-link=" + short + ">" + short + "</span>\n                    <button class=\"copy-button\" data-link=" + short + ">copy</button>\n                </span>\n            </li>");
     }).join('');
     linksWrapper.innerHTML = displayAllLinks;
 };
@@ -63,64 +63,95 @@ var handleCreateShortLink = function (sLink, fLink) {
 };
 var submitLink = function (e) {
     e.preventDefault();
-    if (form.link.value === '') {
-        return inputWrapper.classList.add('error');
+    var value = form.link.value;
+    console.log(value);
+    var is_Url_valid = validURL(value);
+    console.log(is_Url_valid);
+    if (value === '') {
+        inputWrapper.classList.add('error');
+        return;
     }
-    var fLink = form.link.value;
-    var headers = new Headers({
-        "Accept": "application/json",
-        "Content-Type": "application/json"
-    });
-    var request = new Request(form.action, {
-        method: form.method,
-        headers: headers,
-        body: JSON.stringify({ url: fLink })
-    });
-    //-------------------------------------------------------------------
-    //using promises (start)
-    //-------------------------------------------------------------------
-    // const getShortLink = (req) => {
-    //     fetch(req)
-    //         .then(res => res.json())
-    //         .then(sLink => handleCreateShortLink(sLink, fLink))
-    //         .catch(err => console.log(err))
-    // }
-    //-------------------------------------------------------------------
-    //using promises (end)
-    //-------------------------------------------------------------------
-    //-------------------------------------------------------------------
-    //using async and await (start)
-    //-------------------------------------------------------------------
-    function getShortLink(req) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response, sLink, err_1;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 3, , 4]);
-                        console.log(req);
-                        return [4 /*yield*/, fetch(req)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.json()];
-                    case 2:
-                        sLink = _a.sent();
-                        return [2 /*return*/, handleCreateShortLink(sLink, fLink)];
-                    case 3:
-                        err_1 = _a.sent();
-                        console.log(err_1);
-                        return [3 /*break*/, 4];
-                    case 4: return [2 /*return*/];
-                }
-            });
+    else if (is_Url_valid == false) {
+        alert('Enter a valid url');
+        return;
+    }
+    else {
+        var fLink_1 = value;
+        var headers = new Headers({
+            "Accept": "application/json",
+            "Content-Type": "application/json"
         });
+        var request = new Request(form.action, {
+            method: form.method,
+            headers: headers,
+            body: JSON.stringify({ url: fLink_1 })
+        });
+        //-------------------------------------------------------------------
+        //using async and await (start)
+        //-------------------------------------------------------------------
+        function getShortLink(req) {
+            return __awaiter(this, void 0, void 0, function () {
+                var response, sLink, err_1;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            _a.trys.push([0, 3, , 4]);
+                            return [4 /*yield*/, fetch(req)];
+                        case 1:
+                            response = _a.sent();
+                            return [4 /*yield*/, response.json()];
+                        case 2:
+                            sLink = _a.sent();
+                            return [2 /*return*/, handleCreateShortLink(sLink, fLink_1)];
+                        case 3:
+                            err_1 = _a.sent();
+                            console.log(err_1);
+                            return [3 /*break*/, 4];
+                        case 4: return [2 /*return*/];
+                    }
+                });
+            });
+        }
+        //-------------------------------------------------------------------
+        //using async and await (end)
+        //-------------------------------------------------------------------
+        getShortLink(request);
+        //-------------------------------------------------------------------
+        //using promises (start)
+        //-------------------------------------------------------------------
+        // const getShortLink = (req) => {
+        //     fetch(req)
+        //         .then(res => res.json())
+        //         .then(sLink => handleCreateShortLink(sLink, fLink))
+        //         .catch(err => console.log(err))
+        // }
+        //-------------------------------------------------------------------
+        //using promises (end)
+        //-------------------------------------------------------------------
     }
-    //-------------------------------------------------------------------
-    //using async and await (end)
-    //-------------------------------------------------------------------
-    getShortLink(request);
 };
 if (allLinks) {
     handleDisplayLinks(allLinks);
 }
 button.addEventListener('click', submitLink);
+function validURL(myURL) {
+    var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
+        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|' + // domain name
+        '((\\d{1,3}\\.){3}\\d{1,3}))' + // ip (v4) address
+        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + //port
+        '(\\?[;&amp;a-z\\d%_.~+=-]*)?' + // query string
+        '(\\#[-a-z\\d_]*)?$', 'i');
+    return pattern.test(myURL);
+}
+var handleCopyText = function (e) {
+    var shortLink = document.querySelector(".shortened-link[data-link=\"" + e.target.dataset.link + "\"]");
+    console.log(shortLink.innerHTML);
+    var element = document.createElement('textarea');
+    element.value = shortLink.innerHTML;
+    document.body.appendChild(element);
+    element.select();
+    document.execCommand('copy');
+    document.body.removeChild(element);
+};
+var copyButtons = document.querySelectorAll('.copy-button');
+copyButtons.forEach(function (copyButton) { return copyButton.addEventListener('click', handleCopyText); });
