@@ -1,4 +1,5 @@
 
+const inputWrapper = document.querySelector('.shortly__form__input');
 const input = document.querySelector('.shortly__form__input input');
 const button = document.querySelector('.shortly__form__input button');
 const linksWrapper = document.querySelector('.shortly__form__links');
@@ -40,6 +41,9 @@ const handleCreateShortLink = (sLink: any, fLink: any) => {
 
 const submitLink = (e) => {
     e.preventDefault();
+    if (form.link.value === '') {
+        return inputWrapper.classList.add('error')
+    }
     const fLink = form.link.value;
     const headers = new Headers({
         "Accept": "application/json",

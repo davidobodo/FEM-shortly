@@ -34,6 +34,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var inputWrapper = document.querySelector('.shortly__form__input');
 var input = document.querySelector('.shortly__form__input input');
 var button = document.querySelector('.shortly__form__input button');
 var linksWrapper = document.querySelector('.shortly__form__links');
@@ -62,6 +63,9 @@ var handleCreateShortLink = function (sLink, fLink) {
 };
 var submitLink = function (e) {
     e.preventDefault();
+    if (form.link.value === '') {
+        return inputWrapper.classList.add('error');
+    }
     var fLink = form.link.value;
     var headers = new Headers({
         "Accept": "application/json",

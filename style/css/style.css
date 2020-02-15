@@ -88,6 +88,11 @@
         padding: 0 4rem;
         border-radius: 10px;
         outline: none; }
+      .second__section .shortly__form__input .error-message {
+        font-style: italic;
+        margin-top: 10px;
+        color: #fb5859;
+        display: none; }
       @media (max-width: 992px) {
         .second__section .shortly__form__input {
           flex-wrap: wrap;
@@ -101,6 +106,13 @@
             padding-top: 1rem;
             padding-bottom: 1rem;
             font-weight: 700; } }
+    .second__section .shortly__form .error input {
+      border: 3px solid #fb5859 !important; }
+    .second__section .shortly__form .error ::placeholder {
+      color: #fb5859;
+      opacity: 0.5; }
+    .second__section .shortly__form .error .error-message {
+      display: block; }
     .second__section .shortly__form__links {
       list-style: none;
       padding-left: 0; }
