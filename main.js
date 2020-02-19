@@ -34,45 +34,39 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var inputWrapper = document.querySelector('.shortly__form__input');
+var input_container = document.querySelector('.shortly__form__input');
 var input = document.querySelector('.shortly__form__input input');
-var button = document.querySelector('.shortly__form__input button');
-var linksWrapper = document.querySelector('.shortly__form__links');
+var shorten_button = document.querySelector('.shortly__form__input button');
+var links_container = document.querySelector('.shortly__form__links');
 var form = document.forms["rel"];
-var allLinks = JSON.parse(localStorage.getItem("my-shortened-links")) || [];
+var copyButtons = document.querySelectorAll('.copy-button');
+var copyButtonsAncestor = document.querySelector('.shortly__form__links');
+var all_shortened_links = JSON.parse(localStorage.getItem("my-shortened-links")) || [];
 var handleDisplayLinks = function (links) {
-    var displayAllLinks = links.map(function (link) {
+    var display_all_links = links.map(function (link) {
         var short = link.short, long = link.long;
         if (long.length >= 65) {
             long = long.substr(0, 65) + "...";
         }
         return ("<li>\n                <span class=\"full-link\">" + long + "</span>\n                <hr/>\n                <span>\n                    <span class=\"shortened-link\" data-link=" + short + ">" + short + "</span>\n                    <button class=\"copy-button\" data-link=" + short + ">copy</button>\n                </span>\n            </li>");
     }).join('');
-    linksWrapper.innerHTML = displayAllLinks;
+    links_container.innerHTML = display_all_links;
 };
 var handleCreateShortLink = function (sLink, fLink) {
     var id = sLink.hashid;
-    var shortLink = "https://rel.ink/" + id;
-    allLinks.push({
-        short: shortLink,
+    var short_link = "https://rel.ink/" + id;
+    all_shortened_links.push({
+        short: short_link,
         long: fLink
     });
-    console.log(allLinks);
-    localStorage.setItem("my-shortened-links", JSON.stringify(allLinks));
-    handleDisplayLinks(allLinks);
+    localStorage.setItem("my-shortened-links", JSON.stringify(all_shortened_links));
+    handleDisplayLinks(all_shortened_links);
 };
 var submitLink = function (e) {
     e.preventDefault();
     var value = form.link.value;
-    console.log(value);
-    var is_Url_valid = validURL(value);
-    console.log(is_Url_valid);
     if (value === '') {
-        inputWrapper.classList.add('error');
-        return;
-    }
-    else if (is_Url_valid == false) {
-        alert('Enter a valid url');
+        input_container.classList.add('error');
         return;
     }
     else {
@@ -86,9 +80,6 @@ var submitLink = function (e) {
             headers: headers,
             body: JSON.stringify({ url: fLink_1 })
         });
-        //-------------------------------------------------------------------
-        //using async and await (start)
-        //-------------------------------------------------------------------
         function getShortLink(req) {
             return __awaiter(this, void 0, void 0, function () {
                 var response, sLink, err_1;
@@ -112,46 +103,21 @@ var submitLink = function (e) {
                 });
             });
         }
-        //-------------------------------------------------------------------
-        //using async and await (end)
-        //-------------------------------------------------------------------
         getShortLink(request);
-        //-------------------------------------------------------------------
-        //using promises (start)
-        //-------------------------------------------------------------------
-        // const getShortLink = (req) => {
-        //     fetch(req)
-        //         .then(res => res.json())
-        //         .then(sLink => handleCreateShortLink(sLink, fLink))
-        //         .catch(err => console.log(err))
-        // }
-        //-------------------------------------------------------------------
-        //using promises (end)
-        //-------------------------------------------------------------------
     }
 };
-if (allLinks) {
-    handleDisplayLinks(allLinks);
-}
-button.addEventListener('click', submitLink);
-function validURL(myURL) {
-    var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
-        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|' + // domain name
-        '((\\d{1,3}\\.){3}\\d{1,3}))' + // ip (v4) address
-        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + //port
-        '(\\?[;&amp;a-z\\d%_.~+=-]*)?' + // query string
-        '(\\#[-a-z\\d_]*)?$', 'i');
-    return pattern.test(myURL);
-}
 var handleCopyText = function (e) {
-    var shortLink = document.querySelector(".shortened-link[data-link=\"" + e.target.dataset.link + "\"]");
-    console.log(shortLink.innerHTML);
+    var short_link = document.querySelector(".shortened-link[data-link=\"" + e.target.dataset.link + "\"]");
+    console.log('COPYING', short_link.innerHTML);
     var element = document.createElement('textarea');
-    element.value = shortLink.innerHTML;
+    element.value = short_link.innerHTML;
     document.body.appendChild(element);
     element.select();
     document.execCommand('copy');
     document.body.removeChild(element);
 };
-var copyButtons = document.querySelectorAll('.copy-button');
-copyButtons.forEach(function (copyButton) { return copyButton.addEventListener('click', handleCopyText); });
+if (all_shortened_links) {
+    handleDisplayLinks(all_shortened_links);
+}
+shorten_button.addEventListener('click', submitLink);
+copyButtonsAncestor.addEventListener('click', handleCopyText, false);

@@ -1,15 +1,16 @@
 
-const inputWrapper = document.querySelector('.shortly__form__input');
+const input_container = document.querySelector('.shortly__form__input');
 const input = document.querySelector('.shortly__form__input input');
-const button = document.querySelector('.shortly__form__input button');
-const linksWrapper = document.querySelector('.shortly__form__links');
-const form = document.forms["rel"]
+const shorten_button = document.querySelector('.shortly__form__input button');
+const links_container = document.querySelector('.shortly__form__links');
+const form = document.forms["rel"];
+const copyButtons = document.querySelectorAll('.copy-button');
+const copyButtonsAncestor = document.querySelector('.shortly__form__links');
 
-
-const allLinks = JSON.parse(localStorage.getItem("my-shortened-links")) || [];
+const all_shortened_links = JSON.parse(localStorage.getItem("my-shortened-links")) || [];
 
 const handleDisplayLinks = (links) => {
-    const displayAllLinks = links.map((link) => {
+    const display_all_links = links.map((link) => {
         let { short, long } = link;
         if (long.length >= 65) {
             long = long.substr(0, 65) + "..."
@@ -25,35 +26,30 @@ const handleDisplayLinks = (links) => {
             </li>`
         )
     }).join('')
-    linksWrapper.innerHTML = displayAllLinks;
+    links_container.innerHTML = display_all_links;
 }
 
 const handleCreateShortLink = (sLink: any, fLink: any) => {
     const { hashid: id } = sLink;
-    const shortLink = `https://rel.ink/${id}`
-    allLinks.push({
-        short: shortLink,
+    const short_link = `https://rel.ink/${id}`
+    all_shortened_links.push({
+        short: short_link,
         long: fLink
     })
-    console.log(allLinks)
-    localStorage.setItem("my-shortened-links", JSON.stringify(allLinks))
-    handleDisplayLinks(allLinks);
+    localStorage.setItem("my-shortened-links", JSON.stringify(all_shortened_links))
+    handleDisplayLinks(all_shortened_links);
 }
 
 const submitLink = (e) => {
     e.preventDefault();
     const value = form.link.value;
-    console.log(value)
-    const is_Url_valid = validURL(value)
-    console.log(is_Url_valid)
 
     if (value === '') {
-        inputWrapper.classList.add('error');
+        input_container.classList.add('error');
         return;
-    } else if (is_Url_valid == false) {
-        alert('Enter a valid url');
-        return;
-    } else {
+    }
+
+    else {
         const fLink = value;
         const headers = new Headers({
             "Accept": "application/json",
@@ -65,10 +61,6 @@ const submitLink = (e) => {
             body: JSON.stringify({ url: fLink })
         });
 
-        //-------------------------------------------------------------------
-        //using async and await (start)
-        //-------------------------------------------------------------------
-
         async function getShortLink(req) {
             try {
                 let response = await fetch(req);
@@ -79,60 +71,25 @@ const submitLink = (e) => {
                 console.log(err)
             }
         }
-        //-------------------------------------------------------------------
-        //using async and await (end)
-        //-------------------------------------------------------------------
         getShortLink(request);
-
-
-
-        //-------------------------------------------------------------------
-        //using promises (start)
-        //-------------------------------------------------------------------
-        // const getShortLink = (req) => {
-        //     fetch(req)
-        //         .then(res => res.json())
-        //         .then(sLink => handleCreateShortLink(sLink, fLink))
-        //         .catch(err => console.log(err))
-        // }
-        //-------------------------------------------------------------------
-        //using promises (end)
-        //-------------------------------------------------------------------
     }
-
-
 }
-
-if (allLinks) {
-    handleDisplayLinks(allLinks)
-}
-
-button.addEventListener('click', submitLink)
-
-
-function validURL(myURL) {
-    var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
-        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|' + // domain name
-        '((\\d{1,3}\\.){3}\\d{1,3}))' + // ip (v4) address
-        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + //port
-        '(\\?[;&amp;a-z\\d%_.~+=-]*)?' + // query string
-        '(\\#[-a-z\\d_]*)?$', 'i');
-    return pattern.test(myURL);
-}
-
 
 const handleCopyText = (e) => {
-    const shortLink = document.querySelector(`.shortened-link[data-link="${e.target.dataset.link}"]`);
-    console.log(shortLink.innerHTML)
+    const short_link = document.querySelector(`.shortened-link[data-link="${e.target.dataset.link}"]`);
+    console.log('COPYING', short_link.innerHTML)
 
     const element = document.createElement('textarea');
-    element.value = shortLink.innerHTML;
+    element.value = short_link.innerHTML;
     document.body.appendChild(element);
     element.select();
     document.execCommand('copy');
     document.body.removeChild(element);
 }
 
-const copyButtons = document.querySelectorAll('.copy-button');
+if (all_shortened_links) {
+    handleDisplayLinks(all_shortened_links)
+}
 
-copyButtons.forEach(copyButton => copyButton.addEventListener('click', handleCopyText))
+shorten_button.addEventListener('click', submitLink)
+copyButtonsAncestor.addEventListener('click', handleCopyText, false)
